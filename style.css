@@ -1,0 +1,61 @@
+html, body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 100%;
+    font-family: "Ubuntu Condensed";
+    overflow: auto;
+}
+
+header {
+    height: 80px;
+    padding: 0 80px 0 80px;
+    background-color: #082128;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+}
+header p {
+    font-size: 24px;
+}
+
+
+
+
+
+
+
+
+main {
+    display: flex;
+    flex: 1;
+    color: white;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 80px 0 80px;
+    background-color: #04171e;
+}
+
+footer {
+    background-color: #082128;
+    height: 80px;
+    padding: 40px 160px 40px 160px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.potrait-div {
+    gap: 24px;
+    align-items: center;
+    display: flex;
+    color: wheat;
+    text-align: center;
+}
+.potrait-div img {
+    width: 80px;
+    height: 80px;
+    border-radius: 48px;
+    object-fit: cover;
+}
