@@ -36,6 +36,15 @@ main {
     padding: 0 80px 0 80px;
     background-color: #04171e;
 }
+.gallery {
+    margin-bottom: 32px;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex
+;
+}
 
 footer {
     background-color: #082128;
