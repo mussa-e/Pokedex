@@ -1,25 +1,26 @@
-function getPokTemplate(apiJson, indexPok, pokemonData){
-
-    let type = pokemonData.types[0].type.name;
-    const typeIcon = typeIcons[type] || "";
+function getPokTemplate(apiJson, indexPok, pokemonData) {
+    
+    let typeIconsHtml = "";
+    for (let indexType = 0; indexType < pokemonData.types.length; indexType++) {
+        let typeName = pokemonData.types[indexType].type.name;
+        let typeIcon = typeIcons[typeName] || "";
+        typeIconsHtml += `<img src="${typeIcon}" class="type-icon"> `;
+    }
 
     return `
-        <div class="pokdek">
+                <div class="pokdek">
+                    <div class="pokdek-head">
+                        #${indexPok + 1} ${apiJson.results[indexPok].name.charAt(0).toUpperCase() + apiJson.results[indexPok].name.slice(1)}
+                    </div>
 
-            <p>
-                #${indexPok + 1} ${apiJson.results[indexPok].name.charAt(0).toUpperCase() + apiJson.results[indexPok].name.slice(1)}
-            </p>
+                    <div class="bg_${pokemonData.types[0].type.name}">
+                    <img src="${pokemonData.sprites.front_default}" alt="${apiJson.results[indexPok].name}">
+                    </div>
 
-
-            
-            <img src="${pokemonData.sprites.front_default}">
-            
-
-            <div class="pokdek-foot">
-                <img src="${typeIcon}" class="type-icon">
-            </div>
-
-        </div>`;
+                    <div class="pokdek-foot">
+                        ${typeIconsHtml}
+                    </div>
+                </div>`;
 }
 
 
@@ -35,3 +36,5 @@ let typeIcons = {
     poison: "./img/poison.svg",
     water: "./img/water.svg"
 };
+
+

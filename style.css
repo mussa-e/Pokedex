@@ -17,7 +17,14 @@ header {
     align-items: center;
 }
 header p {
-    font-size: 24px;
+    font-size: 32px;
+    color: wheat;
+}
+input {
+    border: none;
+    width: 200px;
+    height: 24px;
+    border-radius: 4px;
 }
 
 
@@ -38,6 +45,7 @@ main {
 }
 .gallery {
     margin-bottom: 32px;
+    margin-top: 32px;
     gap: 32px;
     align-items: center;
     justify-content: center;
@@ -70,14 +78,25 @@ footer {
 }
 
 .pokdek {
-    border-radius: 32px;
+    overflow: hidden;
+    border-radius: 16px;
     width: 200px;
     flex-direction: column;
     display: flex;
     align-items: center;
 }
-.pokdek p{
+.pokdek:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.pokdek-head{
     background-color: #082128;
+    width: 100%;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 32px;
 }
 .pokdek img {
     width: 200px;
@@ -87,8 +106,14 @@ footer {
 
 .pokdek-foot{
     background-color: #082128;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+    
 }
 .pokdek-foot img {
     width: 32px;
     height: 32px;
+    margin-right: 8px;
 }
