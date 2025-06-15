@@ -68,3 +68,27 @@ footer {
     border-radius: 48px;
     object-fit: cover;
 }
+
+.pokdek {
+    border-radius: 32px;
+    width: 200px;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+.pokdek p{
+    background-color: #082128;
+}
+.pokdek img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+.pokdek-foot{
+    background-color: #082128;
+}
+.pokdek-foot img {
+    width: 32px;
+    height: 32px;
+}

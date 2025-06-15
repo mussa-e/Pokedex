@@ -9,26 +9,26 @@ function init(){
 
 async function fetchPoks() {
     let api = await fetch(base_url);
-    let apiAsJson = await api.json();
-    console.log(apiAsJson);
+    let apiJson = await api.json();
+    console.log(apiJson);
 
-    renderPoks(apiAsJson);
+    renderPoks(apiJson);
     
 }
 
-async function renderPoks(apiAsJson){
+async function renderPoks(apiJson){
     let contentRef = document.getElementById("gallery");
     contentRef.innerHTML = "";
 
-    for (let indexPok = 0; indexPok < apiAsJson.results.length; indexPok++) {
+    for (let indexPok = 0; indexPok < apiJson.results.length; indexPok++) {
         
-        let pokemonUrl = apiAsJson.results[indexPok].url;
+        let pokemonUrl = apiJson.results[indexPok].url;
         let responsePokemonUrl = await fetch(pokemonUrl);
         let pokemonData = await responsePokemonUrl.json();
         
         
         
-        contentRef.innerHTML += getPokTemplate(apiAsJson, indexPok, pokemonData);
+        contentRef.innerHTML += getPokTemplate(apiJson, indexPok, pokemonData);
         
     }
 }
