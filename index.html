@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,9 +19,13 @@
 </head>
 
 <body onload="init()">
+
+
     <header id="header">
-        <p>Pokedex</p>
-        <input type="text">
+        
+        <div class="header-logo"><img src="img/pokeball_1.png" alt=""><p>Pokedex</p></div>
+        
+        <input type="text" placeholder="Search Pokemon...">
         
     </header>
 
@@ -30,7 +34,20 @@
 
 
         <div class="gallery" id="gallery">
+
+            <div class="spinner">
+                
+            </div>
+
             <!-- render -->
+
+        </div>
+
+        
+        <div class="button-wrapper">
+            <button class="btn" onclick="loadMore()">
+                Load more
+            </button>
         </div>
 
         

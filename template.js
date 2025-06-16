@@ -10,11 +10,12 @@ function getPokTemplate(apiJson, indexPok, pokemonData) {
     return `
                 <div class="pokdek">
                     <div class="pokdek-head">
-                        #${indexPok + 1} ${apiJson.results[indexPok].name.charAt(0).toUpperCase() + apiJson.results[indexPok].name.slice(1)}
+                        #${indexPok + 1} ${apiJson.results[indexPok].name.charAt(0).toUpperCase() 
+                            + apiJson.results[indexPok].name.slice(1)}
                     </div>
 
                     <div class="bg_${pokemonData.types[0].type.name}">
-                    <img src="${pokemonData.sprites.front_default}" alt="${apiJson.results[indexPok].name}">
+                    <img class="pixel-art" src="${pokemonData.sprites.other["official-artwork"].front_default}">
                     </div>
 
                     <div class="pokdek-foot">

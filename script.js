@@ -1,4 +1,5 @@
-let base_url = "https://pokeapi.co/api/v2/pokemon?limit=40&offset=0";
+let base_url_20 = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
+let base_url_40 = "https://pokeapi.co/api/v2/pokemon?limit=40&offset=0";
 
 
 function init(){
@@ -7,10 +8,17 @@ function init(){
 
 }
 
+
+function loadingSpinner() {
+
+}
+
+
 async function fetchPoks() {
-    let api = await fetch(base_url);
+    loadingSpinner();
+    
+    let api = await fetch(base_url_20);
     let apiJson = await api.json();
-    console.log(apiJson);
 
     renderPoks(apiJson);
     
@@ -31,5 +39,11 @@ async function renderPoks(apiJson){
         contentRef.innerHTML += getPokTemplate(apiJson, indexPok, pokemonData);
         
     }
+}
+
+
+function loadMore(){
+    base_url_20 = base_url_40;
+    fetchPoks();
 }
 

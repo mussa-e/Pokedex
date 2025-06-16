@@ -16,6 +16,15 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+.header-logo {
+    gap: 8px;
+    align-items: center;
+    display: flex;
+}
+.header-logo img {
+    width: 40px;
+    height: 40px;
+}
 header p {
     font-size: 32px;
     color: wheat;
@@ -25,7 +34,11 @@ input {
     width: 200px;
     height: 24px;
     border-radius: 4px;
+    padding: 4px;
 }
+input:focus::placeholder {
+      color: transparent;
+    }
 
 
 
@@ -44,7 +57,7 @@ main {
     background-color: #04171e;
 }
 .gallery {
-    margin-bottom: 32px;
+    margin-bottom: 48px;
     margin-top: 32px;
     gap: 32px;
     align-items: center;
@@ -52,6 +65,28 @@ main {
     flex-wrap: wrap;
     display: flex
 ;
+}
+
+.btn {
+    width: 100px;
+    border-radius: 8px;
+    background-color: #6b6e76;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 48px;
+    padding: 8px;
+    width: 120px;
+    height: 40px;
+}
+.btn:hover {
+    /* background-color: blue; */
+    transform: scale(1.1);
+}
+.button-wrapper {
+    display: flex;
+    justify-content: center;
 }
 
 footer {
