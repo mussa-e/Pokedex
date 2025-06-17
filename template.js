@@ -8,7 +8,7 @@ function getPokTemplate(apiJson, indexPok, pokemonData) {
     }
 
     return `
-                <div class="pokdek">
+                <div id="${indexPok}" onclick="showCard(${indexPok})" class="pokdek">
                     <div class="pokdek-head">
                         #${indexPok + 1} ${apiJson.results[indexPok].name.charAt(0).toUpperCase() 
                             + apiJson.results[indexPok].name.slice(1)}
@@ -37,5 +37,6 @@ let typeIcons = {
     poison: "./img/poison.svg",
     water: "./img/water.svg"
 };
+
 
 
