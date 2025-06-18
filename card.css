@@ -1,0 +1,20 @@
+.card {
+    
+}
+.card h2 {
+    font-size: 28px;
+    text-align: center;
+    color: white;
+    background-color: #082128;
+}
+.card-image {
+    width: 200px;
+    height: auto;
+}
+.bar {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 20px;
+    gap: 8px;
+    color: white;
+}

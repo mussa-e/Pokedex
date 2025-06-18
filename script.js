@@ -1,6 +1,8 @@
 let base_url_20 = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
 let base_url_40 = "https://pokeapi.co/api/v2/pokemon?limit=40&offset=0";
 
+let allPokemonData = [];
+
 
 function init(){
     fetchPoks();
@@ -24,10 +26,10 @@ async function renderPoks(apiJson){
     for (let indexPok = 0; indexPok < apiJson.results.length; indexPok++) {
         
         let pokemonUrl = apiJson.results[indexPok].url;
-        let responsePokemonUrl = await fetch(pokemonUrl);
-        let pokemonData = await responsePokemonUrl.json();
+        let PokemonApi = await fetch(pokemonUrl);
+        let pokemonApiJson = await PokemonApi.json();
         
-        contentRef.innerHTML += getPokTemplate(apiJson, indexPok, pokemonData);
+        contentRef.innerHTML += getPokTemplate(apiJson, indexPok, pokemonApiJson);
     }
 
     let buttonWrapper = `
@@ -48,12 +50,9 @@ function loadMore() {
 function showCard(indexPok){
     let overlay = document.getElementById("overlay");
     overlay.classList.toggle("d-none");
-
     
-
+    overlay.innerHTML =  getCardTemplate(indexPok);
     
-
-
     document.getElementById("main-div").classList.toggle("blurred");
     document.getElementById("footer").classList.toggle("blurred");
     document.getElementById("header").classList.toggle("blurred");
