@@ -49,7 +49,9 @@ function getCardTemplate(indexPok){
     return `
         <div class="card">
             <h2>#${indexPok + 1} ${name}</h2>
-            <img src="${image}" class="card-image">
+            <div class="card-image">
+            <img src="${image}" >
+            </div>
 
         <div>
         </div>

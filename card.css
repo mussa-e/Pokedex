@@ -1,13 +1,19 @@
 .card {
-    
+    width: 300px;
 }
 .card h2 {
+    margin-bottom: 0;
     font-size: 28px;
     text-align: center;
     color: white;
     background-color: #082128;
 }
 .card-image {
+    display: flex;
+    justify-content: center;
+    background-color: beige;
+}
+.card-image img{
     width: 200px;
     height: auto;
 }
@@ -17,4 +23,15 @@
     font-size: 20px;
     gap: 8px;
     color: white;
+    background-color: hsl(155deg 65.03% 17.65%);
+    align-items: center;
+    height: 40px;
+    
+}
+.bar p:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: chocolate;
+    text-decoration-thickness: 2px;
+    
 }
