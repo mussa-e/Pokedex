@@ -11,7 +11,7 @@
 .card-image {
     display: flex;
     justify-content: center;
-    background-color: beige;
+    
 }
 .card-image img{
     width: 200px;
@@ -23,7 +23,7 @@
     font-size: 20px;
     gap: 8px;
     color: white;
-    background-color: hsl(155deg 65.03% 17.65%);
+    background-color: #164656;
     align-items: center;
     height: 40px;
     
@@ -34,4 +34,29 @@
     text-decoration-color: chocolate;
     text-decoration-thickness: 2px;
     
+}
+.card-under-bar{
+    background-color: #0d3340;
+    color: white;
+    padding: 0 16px;
+}
+.card-under-bar div{
+    display: flex;
+    
+}
+.card-type{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+    background-color: #082128;
+}
+.card-type img{
+    width: 36px;
+    margin-right: 8px;
+}
+
+.stats{
+    display: flex;
+    flex-direction: column;
 }

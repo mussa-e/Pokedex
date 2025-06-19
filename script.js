@@ -1,6 +1,8 @@
 let base_url_20 = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
 let base_url_40 = "https://pokeapi.co/api/v2/pokemon?limit=40&offset=0";
 
+
+let allPokemon = [];
 let allPokemonData = [];
 
 
@@ -38,6 +40,7 @@ async function renderPoks(apiJson){
         </div>
     `;
     contentRef.innerHTML += buttonWrapper;
+    
 }
 
 
