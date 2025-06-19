@@ -1,24 +1,96 @@
 function renderMain(indexPok, event){
+    event.stopPropagation();
+
+    let pokemon = allPokemonData[indexPok];
+
+    let abilitiesHTML = '';
+    for (let indexAbilities = 0; indexAbilities < pokemon.abilities.length; indexAbilities++) {
+        let abilityName = pokemon.abilities[indexAbilities].ability.name;
+        abilityName = abilityName.charAt(0).toUpperCase() + abilityName.slice(1);
+        abilitiesHTML +=  abilityName + ", ";
+    }
+
+    let refMain = document.getElementById(`card-under-bar-${indexPok}`);
+    refMain.innerHTML = "";
+
+    let MainHTML = `
+            <div id="card-under-bar-${indexPok}" class="card-under-bar">
+                <div><p class="main-p1">Height</p><p class="main-p2">: ${pokemon.height}</p></div>
+                <div><p class="main-p1">Weight</p><p class="main-p2">: ${pokemon.weight}</p></div>
+                <div><p class="main-p1">Base experience</p><p class="main-p2">: ${pokemon.base_experience}</p></div>
+                <div><p class="main-p1">Abilities</p><p class="main-p2">: ${abilitiesHTML}</p></div>
+            </div>
+        
+    `;
+
+    refMain.innerHTML = MainHTML;
 }
 
 
 function renderStats(indexPok, event){
     event.stopPropagation();
 
+    let pokemon = allPokemonData[indexPok];
+
     let refStats = document.getElementById(`card-under-bar-${indexPok}`);
     refStats.innerHTML ="";
 
     let statsHTML = `<div class="stats">
-                        <div><p>hp</p></div>
-                        <div><p>attack</p></div>
-                        <div><p>defense</p></div>
-                        <div><p>special-attack</p></div>
-                        <div><p>special-defense</p></div>
-                        <div><p>speed</p></div>
-                    </div>
+            <div>
+                <p>hp</p>
+                
+                <div class="progress">
+                <div class="p-bar" style="width: ${pokemon.stats[0].base_stat / 255 * 100}%"></div>
+                </div>
+            </div>
+
+            <div>
+                <p>attack</p>
+                
+                <div class="progress">
+                <div class="p-bar" style="width: ${pokemon.stats[1].base_stat / 255 * 100}%"></div>
+                </div>
+            </div>
+
+            <div>
+                <p>defense</p>
+                
+                <div class="progress">
+                <div class="p-bar" style="width: ${pokemon.stats[2].base_stat / 255 * 100}%"></div>
+                </div>
+            </div>
+
+            <div>
+                <p>special-attack</p>
+                
+                <div class="progress">
+                <div class="p-bar" style="width: ${pokemon.stats[3].base_stat / 255 * 100}%"></div>
+                </div>
+            </div>
+
+            <div>
+                <p>special-defense</p>
+                
+                <div class="progress">
+                <div class="p-bar" style="width: ${pokemon.stats[4].base_stat / 255 * 100}%"></div>
+                </div>
+            </div>
+
+            <div>
+                <p>speed</p>
+                
+                <div class="progress">
+                <div class="p-bar" style="width: ${pokemon.stats[5].base_stat / 255 * 100}%"></div>
+                </div>
+            </div>
+            </div>
+
                     `;
     refStats.innerHTML = statsHTML;
 }
+
+
+
 
 
 function renderEvoChain(indexPok, event){

@@ -50,7 +50,8 @@ function getCardTemplate(indexPok){
     let abilitiesHTML = '';
     for (let indexAbilities = 0; indexAbilities < pokemon.abilities.length; indexAbilities++) {
         let abilityName = pokemon.abilities[indexAbilities].ability.name;
-        abilitiesHTML += abilityName;
+        abilityName = abilityName.charAt(0).toUpperCase() + abilityName.slice(1);
+        abilitiesHTML +=  abilityName + ", ";
     }
 
 
@@ -61,6 +62,8 @@ function getCardTemplate(indexPok){
         typeIconsHtml += `<img src="${typeIcon}">`;
     }
 
+
+    
     return `
         <div class="card">
             <h2>#${indexPok + 1} ${name}</h2>
@@ -77,10 +80,10 @@ function getCardTemplate(indexPok){
             <div class="card-type">${typeIconsHtml}</div>
 
             <div id="card-under-bar-${indexPok}" class="card-under-bar">
-                <div><p>Height</p><p>:${pokemon.height}</p></div>
-                <div><p>Weight</p><p>:${pokemon.weight}</p></div>
-                <div><p>Base experience</p><p>:${pokemon.base_experience}</p></div>
-                <div><p>Abilities</p><p>:${abilitiesHTML}</p></div>
+                <div><p class="main-p1">Height</p><p class="main-p2">: ${pokemon.height}</p></div>
+                <div><p class="main-p1">Weight</p><p class="main-p2">: ${pokemon.weight}</p></div>
+                <div><p class="main-p1">Base experience</p><p class="main-p2">: ${pokemon.base_experience}</p></div>
+                <div><p class="main-p1">Abilities</p><p class="main-p2">: ${abilitiesHTML}</p></div>
             </div>
         </div>
     `;

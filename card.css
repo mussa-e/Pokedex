@@ -1,5 +1,5 @@
 .card {
-    width: 300px;
+    width: 350px;
 }
 .card h2 {
     margin-bottom: 0;
@@ -59,4 +59,30 @@
 .stats{
     display: flex;
     flex-direction: column;
+    padding-bottom: 8px;
+}
+.stats div {
+    display: flex;
+    align-items: center;
+    
+}
+
+.progress {
+  width: 200px;
+  background-color: #eee;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 5px;
+  margin-left: auto;
+}
+.p-bar {
+  height: 100%;
+  background-color: chocolate;
+  width: 0%; /* Wird inline über style-Attribut gesetzt */
+  transition: width 0.5s ease-in-out;
+}
+
+.main-p1{
+    width: 175px;
 }
