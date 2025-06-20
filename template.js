@@ -68,7 +68,9 @@ function getCardTemplate(indexPok){
         <div class="card">
             <h2>#${indexPok + 1} ${name}</h2>
             <div class="card-image bg_${pokemon.types[0].type.name}">
-                <img src="${image}">
+                <div class="arrow"><i onclick="skipLeft(${indexPok}, event)" class="fa-solid fa-reply"></i></div>
+                    <img src="${image}">
+                <div class="arrow"><i onclick="skipRight(${indexPok}, event)" class="fa-solid fa-share"></i></div>
             </div>
 
             <div class="bar">
@@ -80,10 +82,10 @@ function getCardTemplate(indexPok){
             <div class="card-type">${typeIconsHtml}</div>
 
             <div id="card-under-bar-${indexPok}" class="card-under-bar">
-                <div><p class="main-p1">Height</p><p class="main-p2">: ${pokemon.height}</p></div>
-                <div><p class="main-p1">Weight</p><p class="main-p2">: ${pokemon.weight}</p></div>
-                <div><p class="main-p1">Base experience</p><p class="main-p2">: ${pokemon.base_experience}</p></div>
-                <div><p class="main-p1">Abilities</p><p class="main-p2">: ${abilitiesHTML}</p></div>
+                <div class="card-main-div"><p class="main-p1">Height</p><p class="main-p2">: ${pokemon.height/10} m</p></div>
+                <div class="card-main-div"><p class="main-p1">Weight</p><p class="main-p2">: ${pokemon.weight/10} kg</p></div>
+                <div class="card-main-div"><p class="main-p1">Base experience</p><p class="main-p2">: ${pokemon.base_experience}</p></div>
+                <div class="card-main-div"><p class="main-p1">Abilities</p><p class="main-p2">: ${abilitiesHTML}</p></div>
             </div>
         </div>
     `;

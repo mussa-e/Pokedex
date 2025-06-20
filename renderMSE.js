@@ -14,12 +14,12 @@ function renderMain(indexPok, event){
     refMain.innerHTML = "";
 
     let MainHTML = `
-            <div id="card-under-bar-${indexPok}" class="card-under-bar">
-                <div><p class="main-p1">Height</p><p class="main-p2">: ${pokemon.height}</p></div>
-                <div><p class="main-p1">Weight</p><p class="main-p2">: ${pokemon.weight}</p></div>
-                <div><p class="main-p1">Base experience</p><p class="main-p2">: ${pokemon.base_experience}</p></div>
-                <div><p class="main-p1">Abilities</p><p class="main-p2">: ${abilitiesHTML}</p></div>
-            </div>
+            
+                <div class="card-main-div"><p class="main-p1">Height</p><p class="main-p2">: ${pokemon.height/10} m</p></div>
+                <div class="card-main-div"><p class="main-p1">Weight</p><p class="main-p2">: ${pokemon.weight/10} kg</p></div>
+                <div class="card-main-div"><p class="main-p1">Base experience</p><p class="main-p2">: ${pokemon.base_experience}</p></div>
+                <div class="card-main-div"><p class="main-p1">Abilities</p><p class="main-p2">: ${abilitiesHTML}</p></div>
+            
         
     `;
 
@@ -36,7 +36,7 @@ function renderStats(indexPok, event){
     refStats.innerHTML ="";
 
     let statsHTML = `<div class="stats">
-            <div>
+            <div class="stats-div">
                 <p>hp</p>
                 
                 <div class="progress">
@@ -44,7 +44,7 @@ function renderStats(indexPok, event){
                 </div>
             </div>
 
-            <div>
+            <div class="stats-div">
                 <p>attack</p>
                 
                 <div class="progress">
@@ -52,7 +52,7 @@ function renderStats(indexPok, event){
                 </div>
             </div>
 
-            <div>
+            <div class="stats-div">
                 <p>defense</p>
                 
                 <div class="progress">
@@ -60,7 +60,7 @@ function renderStats(indexPok, event){
                 </div>
             </div>
 
-            <div>
+            <div class="stats-div">
                 <p>special-attack</p>
                 
                 <div class="progress">
@@ -68,7 +68,7 @@ function renderStats(indexPok, event){
                 </div>
             </div>
 
-            <div>
+            <div class="stats-div">
                 <p>special-defense</p>
                 
                 <div class="progress">
@@ -76,7 +76,7 @@ function renderStats(indexPok, event){
                 </div>
             </div>
 
-            <div>
+            <div class="stats-div">
                 <p>speed</p>
                 
                 <div class="progress">
