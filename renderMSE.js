@@ -1,5 +1,6 @@
 function renderMain(indexPok, event){
     event.stopPropagation();
+    underline("main");
 
     let pokemon = allPokemonData[indexPok];
 
@@ -7,8 +8,11 @@ function renderMain(indexPok, event){
     for (let indexAbilities = 0; indexAbilities < pokemon.abilities.length; indexAbilities++) {
         let abilityName = pokemon.abilities[indexAbilities].ability.name;
         abilityName = abilityName.charAt(0).toUpperCase() + abilityName.slice(1);
+        
         abilitiesHTML +=  abilityName + ", ";
     }
+
+
 
     let refMain = document.getElementById(`card-under-bar-${indexPok}`);
     refMain.innerHTML = "";
@@ -29,6 +33,7 @@ function renderMain(indexPok, event){
 
 function renderStats(indexPok, event){
     event.stopPropagation();
+    underline("stats");
 
     let pokemon = allPokemonData[indexPok];
 
@@ -95,6 +100,7 @@ function renderStats(indexPok, event){
 
 function renderEvoChain(indexPok, event){
     event.stopPropagation();
+    underline("evochain");
 
     let evomon = allPokemon[indexPok];
 

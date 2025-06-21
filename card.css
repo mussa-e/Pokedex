@@ -23,7 +23,9 @@
     height: auto;
     margin-right: 20px;
     margin-left: 20px;
+    
 }
+
 .bar {
     display: flex;
     justify-content: space-evenly;
@@ -37,10 +39,7 @@
 }
 .bar p:hover {
     cursor: pointer;
-    text-decoration: underline;
-    text-decoration-color: chocolate;
-    text-decoration-thickness: 2px;
-    
+    transform: scale(1.1)
 }
 .card-under-bar{
     background-color: #0d3340;

@@ -74,9 +74,9 @@ function getCardTemplate(indexPok){
             </div>
 
             <div class="bar">
-                <p onclick="renderMain(${indexPok}, event)">main</p>
-                <p onclick="renderStats(${indexPok}, event)">stats</p>
-                <p onclick="renderEvoChain(${indexPok}, event)">evo chain</p>
+                <p id="main" class="underline" onclick="renderMain(${indexPok}, event)">main</p>
+                <p id="stats" onclick="renderStats(${indexPok}, event)">stats</p>
+                <p id="evochain" onclick="renderEvoChain(${indexPok}, event)">evo chain</p>
             </div>
 
             <div class="card-type">${typeIconsHtml}</div>

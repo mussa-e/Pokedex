@@ -44,10 +44,7 @@ async function renderPoks(apiJson){
 }
 
 
-function loadMore() {
-    base_url_20 = base_url_40;
-    fetchPoks();
-}
+
 
 
 function showCard(indexPok){
@@ -72,6 +69,21 @@ function template(){
     document.getElementById("header").classList.toggle("blurred");
 }
 
+
+function loadMore() {
+    base_url_20 = base_url_40;
+    spinner();
+    fetchPoks();
+}
+function spinner() {
+  let spinnerOverlay = document.getElementById('spinner-overlay');
+  spinnerOverlay.style.display = 'flex';
+
+  setTimeout(() => {
+    spinnerOverlay.style.display = 'none';
+    
+  }, 1000);
+}
 
 
 

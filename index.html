@@ -18,10 +18,15 @@
     <script src="template.js"></script>
     <script src="renderMSE.js"></script>
     <script src="skip.js"></script>
+    <script src="underline.js"></script>
 
 </head>
 
 <body onload="init()">
+
+    <div id="spinner-overlay" class="spinner-overlay" style="display: none;">
+        <div class="spinner"></div>
+    </div>
 
     <div onclick="template()" id="overlay" class="overlay d-none">
     </div>
@@ -45,6 +50,7 @@
 
             <div class="spinner">
             </div>
+            
 
             <!-- render -->
 
