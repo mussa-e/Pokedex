@@ -54,7 +54,6 @@ function getCardTemplate(indexPok){
         abilitiesHTML +=  abilityName + ", ";
     }
 
-
     let typeIconsHtml = "";
     for (let indexType = 0; indexType < pokemon.types.length; indexType++) {
         let typeName = pokemon.types[indexType].type.name;
@@ -62,8 +61,6 @@ function getCardTemplate(indexPok){
         typeIconsHtml += `<img src="${typeIcon}">`;
     }
 
-
-    
     return `
         <div class="card">
             <h2>#${indexPok + 1} ${name}</h2>

@@ -5,6 +5,7 @@ let base_url_40 = "https://pokeapi.co/api/v2/pokemon?limit=40&offset=0";
 let allPokemon = [];
 let allPokemonData = [];
 
+let api = base_url_20;
 
 function init(){
     fetchPoks();
@@ -17,7 +18,6 @@ async function fetchPoks() {
     let apiJson = await api.json();
 
     renderPoks(apiJson);
-    
 }
 
 
@@ -40,11 +40,7 @@ async function renderPoks(apiJson){
         </div>
     `;
     contentRef.innerHTML += buttonWrapper;
-    
 }
-
-
-
 
 
 function showCard(indexPok){
@@ -59,7 +55,6 @@ function showCard(indexPok){
 }
 
 
-
 function template(){
     let overlay = document.getElementById("overlay");
     overlay.classList.toggle("d-none");
@@ -72,6 +67,7 @@ function template(){
 
 function loadMore() {
     base_url_20 = base_url_40;
+    api = base_url_40;
     spinner();
     fetchPoks();
 }
