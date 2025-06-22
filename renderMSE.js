@@ -98,23 +98,91 @@ function renderStats(indexPok, event){
 
 
 
-function renderEvoChain(indexPok, event){
+// async function renderEvoChain(indexPok, event) {
+//     event.stopPropagation();
+//     underline("evochain");
+
+//     let pokemon = allPokemonData[indexPok];
+//     let image = pokemon.sprites.other["official-artwork"].front_default;
+
+//     let evomonUrl = allPokemonData[indexPok].species.url;
+//     let evomonApi = await fetch(evomonUrl);
+//     let evomonApiJson = await evomonApi.json();
+
+//     let evoChainUrl = evomonApiJson.evolution_chain.url;
+//     let chainApi = await fetch(evoChainUrl);
+//     let chainApiJson = await chainApi.json();
+
+//     // Extrahiere Evolutionsnamen
+//     let chain = chainApiJson.chain;
+//     let evoNames = [];
+
+//     while (chain) {
+//         evoNames.push(chain.species.name);
+//         chain = chain.evolves_to[0];  // gehe zur nächsten Stufe, falls vorhanden
+//     }
+
+//     // Baue HTML dynamisch basierend auf Anzahl Evolutionsstufen
+//     let evoHTML = `<div class="evo">`;
+
+//     for (let i = 0; i < evoNames.length; i++) {
+//         evoHTML += `<div class="evo-chain"><img src="${image}"><p>${evoNames[i]}</p></div>`;
+//         if (i < evoNames.length - 1) {
+//             evoHTML += `<div><i class="fa-solid fa-angles-right"></i></div>`;
+//         }
+//     }
+
+//     evoHTML += `</div>`;
+
+//     let refEvo = document.getElementById(`card-under-bar-${indexPok}`);
+//     refEvo.innerHTML = evoHTML;
+// }
+
+async function renderEvoChain(indexPok, event) {
     event.stopPropagation();
     underline("evochain");
+    getPokemons();
 
-    let evomon = allPokemon[indexPok];
+    let evomonUrl = allPokemonData[indexPok].species.url;
+    let evomonApi = await fetch(evomonUrl);
+    let evomonApiJson = await evomonApi.json();
+
+    let evoChainUrl = evomonApiJson.evolution_chain.url;
+    let chainApi = await fetch(evoChainUrl);
+    let chainApiJson = await chainApi.json();
+
+    // Extrahiere Evolutionsnamen
+    let chain = chainApiJson.chain;
+    let evoNames = [];
+
+    while (chain) {
+        evoNames.push(chain.species.name);
+        chain = chain.evolves_to[0];  // gehe zur nächsten Stufe
+    }
+
+    // HTML zusammenbauen
+    let evoHTML = `<div class="evo">`;
+
+    for (let i = 0; i < evoNames.length; i++) {
+        const evoName = evoNames[i];
+
+        // Suche das passende Bild im pokemons-Array
+        const match = pokemons.find(p => p.name === evoName);
+        const imgSrc = match?.image || '';
+
+        evoHTML += `
+            <div class="evo-chain">
+                <img src="${imgSrc}">
+                <p>${evoName}</p>
+            </div>`;
+
+        if (i < evoNames.length - 1) {
+            evoHTML += `<div><i class="fa-solid fa-angles-right"></i></div>`;
+        }
+    }
+
+    evoHTML += `</div>`;
 
     let refEvo = document.getElementById(`card-under-bar-${indexPok}`);
-    refEvo.innerHTML ="";
-
-    let evoHTML = `<div class="evo">
-                        <div><img><p>${evomon.results[indexPok].name}</p></div>
-                        <div><i class="fa-solid fa-angles-right"></i></div>
-                        <div><img><p>${evomon.results[indexPok+1].name}</p></div>
-                        <div><i class="fa-solid fa-angles-right"></i></div>
-                        <div><img><p>${evomon.results[indexPok+2].name}</p></div>
-                    </div>
-                    `;
     refEvo.innerHTML = evoHTML;
-    
 }

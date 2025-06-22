@@ -82,6 +82,30 @@ function spinner() {
 }
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('inputfield').addEventListener('input', search);
+});
+
+function search() {
+    let searchValue = document.getElementById('inputfield').value.toLowerCase();
+    let container = document.getElementById('gallery');
+    container.innerHTML = '';
+
+    // if (searchValue.length < 3) {
+    //     return; // Nicht suchen, wenn weniger als 3 Zeichen eingegeben wurden
+    // }
+
+    for (let i = 0; i < allPokemon.length; i++) {
+        let name = allPokemon[i].results[i].name.toLowerCase();
+
+        if (name.includes(searchValue)) {
+            container.innerHTML += getPokTemplate(allPokemon[i], i, allPokemonData[i]);
+        }
+    }
+}
+
+
+
 
 
 

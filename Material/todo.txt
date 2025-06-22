@@ -1,0 +1,5 @@
+-Suchfunktion
+-evochain
+-footer
+-letztes komma
+-responsiv
