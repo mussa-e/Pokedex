@@ -99,10 +99,14 @@ main {
 footer {
     background-color: #082128;
     height: 80px;
-    padding: 40px 160px 40px 160px;
+    padding: 30px 160px 40px 160px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    color: hsla(45.5, 96%, 57%, 1);
+    flex-direction: column;
+    gap: 16px;
+    font-size: 18px;
 }
 
 .potrait-div {
@@ -158,6 +162,8 @@ footer {
     width: 32px;
     height: 32px;
     margin-right: 8px;
+    border: 2px ridge hsla(45.5, 96%, 57%, 1);
+    border-radius: 50px;
 }
 
 .input-wrapper{

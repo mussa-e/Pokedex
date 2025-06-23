@@ -26,11 +26,9 @@ async function renderPoks(apiJson){
     contentRef.innerHTML = "";
 
     for (let indexPok = 0; indexPok < apiJson.results.length; indexPok++) {
-        
         let pokemonUrl = apiJson.results[indexPok].url;
         let PokemonApi = await fetch(pokemonUrl);
         let pokemonApiJson = await PokemonApi.json();
-        
         contentRef.innerHTML += getPokTemplate(apiJson, indexPok, pokemonApiJson);
     }
 
@@ -71,6 +69,8 @@ function loadMore() {
     spinner();
     fetchPoks();
 }
+
+
 function spinner() {
   let spinnerOverlay = document.getElementById('spinner-overlay');
   spinnerOverlay.style.display = 'flex';

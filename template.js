@@ -65,13 +65,13 @@ function getCardTemplate(indexPok){
         <div class="card">
             <h2>#${indexPok + 1} ${name}</h2>
             <div class="card-image bg_${pokemon.types[0].type.name}">
-                <div class="arrow"><i onclick="skipLeft(${indexPok}, event)" class="fa-solid fa-reply"></i></div>
+                <div class="arrow"><i onclick="skipLeft(${indexPok}, event)" class="fa-solid fa-reply border-solid-ring"></i></div>
                     <img src="${image}">
-                <div class="arrow"><i onclick="skipRight(${indexPok}, event)" class="fa-solid fa-share"></i></div>
+                <div class="arrow"><i onclick="skipRight(${indexPok}, event)" class="fa-solid fa-share border-solid-ring"></i></div>
             </div>
 
             <div class="bar">
-                <p id="main" class="underline" onclick="renderMain(${indexPok}, event)">main</p>
+                <p id="main" class="border" onclick="renderMain(${indexPok}, event)">main</p>
                 <p id="stats" onclick="renderStats(${indexPok}, event)">stats</p>
                 <p id="evochain" onclick="renderEvoChain(${indexPok}, event)">evo chain</p>
             </div>

@@ -1,32 +1,43 @@
 .bg_bug {
     background-color: #a69d29;
+    background-image: linear-gradient(to right, #a69d29, #d9d273);
+
 }
 .bg_electric {
     background-color: #e4bb26;
+    background-image: linear-gradient(to right, #e4bb26, #efd36e);
 }
 .bg_fairy {
     background-color: #e68de0;
+    background-image: linear-gradient(to right, #e68de0, #ecbfe9);
 }
 .bg_fire {
     background-color: #de6844;
+    background-image: linear-gradient(to right, #de6844, #f3a188);
 }
 .bg_flying {
     background-color: #74abd2;
+    background-image: linear-gradient(to right, #74abd2, #8eb8d5);
 }
 .bg_grass {
     background-color: #4a9740;
+    background-image: linear-gradient(to right, #4a9740, #7eb776);
 }
 .bg_ground {
     background-color: #9c6f38;
+    background-image: linear-gradient(to right, #9c6f38, #bb976b);
 }
 .bg_normal {
     background-color: #7d8182;
+    background-image: linear-gradient(to right, #7d8182, #a3b1b4);
 }
 .bg_poison {
     background-color: #9450d0;
+    background-image: linear-gradient(to right, #9450d0, #c99af2);
 }
 .bg_water {
     background-color: #3398de;
+    background-image: linear-gradient(to right, #3398de, #7bbae7);
 }
 
 .pixel-art {
@@ -75,5 +86,20 @@
     text-decoration-color: chocolate;
     text-decoration-thickness: 2px;
 }
+.border {
+  border: 3px groove hsla(45.5, 96%, 57%, 1);
+  padding: 2px 4px;
+}
+.border-ring{
+    border: 2px ridge hsla(45.5, 96%, 57%, 1);
+    border-radius: 50px;
+    padding: 4px;
+}
+.border-solid-ring{
+    border: 2px solid hsla(45.5, 96%, 57%, 1);
+    border-radius: 50px;
+    padding: 4px;
+}
+
 
 

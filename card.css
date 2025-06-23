@@ -59,6 +59,8 @@
 .card-type img{
     width: 36px;
     margin-right: 8px;
+    border: 2px ridge hsla(45.5, 96%, 57%, 1);
+    border-radius: 50px;
 }
 
 .stats{
@@ -88,6 +90,8 @@
   width: 0%;
   transition: width 0.5s ease-in-out;
   border-radius: 8px;
+  background-image: linear-gradient(to right, chocolate, #feb47b);
+
 }
 
 .main-p1{

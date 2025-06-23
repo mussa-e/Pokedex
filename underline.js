@@ -3,15 +3,15 @@ function underline(active) {
     let stats = document.getElementById("stats");
     let evochain = document.getElementById("evochain");
 
-    main.classList.remove("underline");
-    stats.classList.remove("underline");
-    evochain.classList.remove("underline");
+    main.classList.remove("border");
+    stats.classList.remove("border");
+    evochain.classList.remove("border");
 
     if (active === "main") {
-        main.classList.add("underline");
+        main.classList.add("border");
     } else if (active === "stats") {
-        stats.classList.add("underline");
+        stats.classList.add("border");
     } else if (active === "evochain") {
-        evochain.classList.add("underline");
+        evochain.classList.add("border");
     }
 }
