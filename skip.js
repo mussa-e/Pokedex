@@ -6,13 +6,11 @@ function skipRight(indexPok, event){
         let overlay = document.getElementById("overlay");
         overlay.innerHTML =  getCardTemplate(indexPokSkipRight);
     }
-    
     if (api === base_url_40) {
         let indexPokSkipRight = Math.min(indexPok + 1, 39);
         let overlay = document.getElementById("overlay");
         overlay.innerHTML =  getCardTemplate(indexPokSkipRight);
     }
-    
 }
 
 
@@ -24,5 +22,4 @@ function skipLeft(indexPok, event){
         let overlay = document.getElementById("overlay");
         overlay.innerHTML =  getCardTemplate(indexPokSkipLeft);
     }
-    
 }

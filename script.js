@@ -1,11 +1,9 @@
 let base_url_20 = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
 let base_url_40 = "https://pokeapi.co/api/v2/pokemon?limit=40&offset=0";
-
-
 let allPokemon = [];
 let allPokemonData = [];
-
 let api = base_url_20;
+
 
 function init(){
     fetchPoks();
@@ -32,12 +30,7 @@ async function renderPoks(apiJson){
         contentRef.innerHTML += getPokTemplate(apiJson, indexPok, pokemonApiJson);
     }
 
-    let buttonWrapper = `
-        <div class="button-wrapper" id="button-wrapper">
-            <button id="btn" class="btn" onclick="loadMore()">Load more</button>
-        </div>
-    `;
-    contentRef.innerHTML += buttonWrapper;
+    contentRef.innerHTML += getButtonWrapper();
 }
 
 
@@ -86,14 +79,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('inputfield').addEventListener('input', search);
 });
 
+
 function search() {
     let searchValue = document.getElementById('inputfield').value.toLowerCase();
     let container = document.getElementById('gallery');
     container.innerHTML = '';
-
-    // if (searchValue.length < 3) {
-    //     return; // Nicht suchen, wenn weniger als 3 Zeichen eingegeben wurden
-    // }
 
     for (let i = 0; i < allPokemon.length; i++) {
         let name = allPokemon[i].results[i].name.toLowerCase();
@@ -101,6 +91,25 @@ function search() {
         if (name.includes(searchValue)) {
             container.innerHTML += getPokTemplate(allPokemon[i], i, allPokemonData[i]);
         }
+    }
+}
+
+
+function underline(active) {
+    let main = document.getElementById("main");
+    let stats = document.getElementById("stats");
+    let evochain = document.getElementById("evochain");
+
+    main.classList.remove("border");
+    stats.classList.remove("border");
+    evochain.classList.remove("border");
+
+    if (active === "main") {
+        main.classList.add("border");
+    } else if (active === "stats") {
+        stats.classList.add("border");
+    } else if (active === "evochain") {
+        evochain.classList.add("border");
     }
 }
 

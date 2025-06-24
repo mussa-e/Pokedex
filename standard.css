@@ -1,7 +1,6 @@
 .bg_bug {
     background-color: #a69d29;
     background-image: linear-gradient(to right, #a69d29, #d9d273);
-
 }
 .bg_electric {
     background-color: #e4bb26;
@@ -45,40 +44,38 @@
     height: auto;
     image-rendering: auto;
 }
-
 .d-none {
     display: none;
 }
 .blurred {
     filter: blur(5px);
 }
-
 .spinner-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #04171e;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #04171e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
 }
 .spinner {
-      width: 50px;
-      height: 50px;
-      border: 5px solid #ccc;
-      border-top: 5px solid #3498db;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 100px auto;
-    }
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ccc;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 100px auto;
+}
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
 
 .underline {
@@ -87,8 +84,8 @@
     text-decoration-thickness: 2px;
 }
 .border {
-  border: 3px groove hsla(45.5, 96%, 57%, 1);
-  padding: 2px 4px;
+    border: 3px groove hsla(45.5, 96%, 57%, 1);
+    padding: 2px 4px;
 }
 .border-ring{
     border: 2px ridge hsla(45.5, 96%, 57%, 1);

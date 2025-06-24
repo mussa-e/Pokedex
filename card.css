@@ -32,7 +32,6 @@
     background-color: #164656;
     align-items: center;
     height: 40px;
-    
 }
 .bar p:hover {
     cursor: pointer;
@@ -47,7 +46,6 @@
 .card-main-div{
     display: flex;
     height: 40px;
-    
 }
 .card-type{
     display: flex;
@@ -72,7 +70,6 @@
     display: flex;
     align-items: center;
     height: 30px;
-    
 }
 
 .progress {
@@ -91,11 +88,13 @@
   transition: width 0.5s ease-in-out;
   border-radius: 8px;
   background-image: linear-gradient(to right, chocolate, #feb47b);
-
 }
 
 .main-p1{
     width: 175px;
+}
+.main-p2{
+    width: 120px;
 }
 
 .arrow {
