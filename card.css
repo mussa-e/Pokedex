@@ -19,8 +19,8 @@
 .card-image img{
     width: 200px;
     height: auto;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .bar {
@@ -58,7 +58,7 @@
     width: 36px;
     margin-right: 8px;
     border: 2px ridge hsla(45.5, 96%, 57%, 1);
-    border-radius: 50px;
+    border-radius: 100px;
 }
 
 .stats{
@@ -119,8 +119,11 @@
     justify-content: space-evenly;
     margin-top: 24px;
 }
+.evo-chain{
+    width: 90%;
+}
 .evo-chain img{
-    width: 80px;
+    width: 90%;
 }
 .evo-chain p{
     text-align: center;

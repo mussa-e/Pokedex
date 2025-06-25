@@ -1,0 +1,71 @@
+@media (max-width: 580px) {
+    header {
+        flex-direction: column;
+    }
+    .input-wrapper {
+        padding-bottom: 30px;
+    }
+}
+
+@media (max-width: 500px) {
+    .card {
+       width: 55%      
+    }
+    .card-image img {
+    width: 50%;
+    }
+    .arrow {
+        font-size: 14px
+    }
+    .card h2{
+        font-size: 26px
+    }
+    .progress{
+        width: 60%;
+    }
+    .card-type img {
+        width: 12%
+    }
+    .chain-arrow{
+        font-size: 12px;
+    }
+    
+}
+
+
+
+@media (max-width: 450px) {
+    .arrow {
+        font-size: 10px
+    }
+    .chain-arrow{
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 430px) {
+    .evo-chain p{
+        writing-mode: vertical-rl;
+    }
+}
+
+@media (max-width: 400px) {
+    .bar {
+        font-size: 18px;
+    }
+    .card h2{
+        font-size: 24px
+    }
+    .evo-chain p{
+        display: none;
+    }
+}
+
+@media (max-width: 350px) {
+    .arrow {
+        font-size: 8px
+    }
+    .bar {
+        font-size: 16px;
+    }
+}

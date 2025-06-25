@@ -14,6 +14,7 @@ let typeIcons = {
 
 function getPokTemplate(apiJson, indexPok, pokemonApiJson) {
     allPokemonData[indexPok] = pokemonApiJson;
+    allPokemon[indexPok] = apiJson;
     
     let typeIconsHtml = "";
     for (let indexType = 0; indexType < pokemonApiJson.types.length; indexType++) {
@@ -61,7 +62,7 @@ function getCardTemplate(indexPok){
 
     return `
         <div class="card">
-            <h2>#${indexPok + 1} ${name}</h2>
+            <h2>#${indexPok + 1} ${name.charAt(0).toUpperCase()+name.slice(1)}</h2>
             <div class="card-image bg_${pokemon.types[0].type.name}">
                 <div class="arrow"><i onclick="skipLeft(${indexPok}, event)" class="fa-solid fa-reply border-solid-ring"></i></div>
                     <img src="${image}">
@@ -171,6 +172,29 @@ function getStatsTemplate(pokemon){
 }
 
 
+function getEvoChainTemplate(evoNames) {
+    let evoHTML = `<div class="evo">`;
+
+    for (let i = 0; i < evoNames.length; i++) {
+        const evoName = evoNames[i];
+
+        const match = pokemons.find(p => p.name === evoName);
+        const imgSrc = match?.image || '';
+
+        evoHTML += `
+            <div class="evo-chain">
+                <img src="${imgSrc}">
+                <p>${evoName.charAt(0).toUpperCase()+evoName.slice(1)}</p>
+            </div>`;
+
+        if (i < evoNames.length - 1) {
+            evoHTML += `<div class="chain-arrow"><i class="border-ring fa-solid fa-angles-right"></i></div>`;
+        }
+    }
+
+    evoHTML += `</div>`;
+    return evoHTML;
+}
 
 
 

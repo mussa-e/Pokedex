@@ -27,46 +27,39 @@ async function renderEvoChain(indexPok, event) {
     underline("evochain");
     getPokemons();
 
-    let evomonUrl = allPokemonData[indexPok].species.url;
-    let evomonApi = await fetch(evomonUrl);
-    let evomonApiJson = await evomonApi.json();
+    const evoNames = await getEvolutionNames(indexPok);
+    const evoHTML = getEvoChainTemplate(evoNames);
+    updateEvoChainDOM(indexPok, evoHTML);
+}
 
-    let evoChainUrl = evomonApiJson.evolution_chain.url;
-    let chainApi = await fetch(evoChainUrl);
-    let chainApiJson = await chainApi.json();
 
-    // Extrahiere Evolutionsnamen
-    let chain = chainApiJson.chain;
-    let evoNames = [];
+async function getEvolutionNames(indexPok) {
+    const speciesUrl = allPokemonData[indexPok].species.url;
+    const speciesData = await fetch(speciesUrl);
+    const speciesDataJson = await speciesData.json();
+
+    const evoChainUrl = speciesDataJson.evolution_chain.url;
+    const evoChainData = await fetch(evoChainUrl);
+    const evoChainDataJson = await evoChainData.json();
+
+    const names = [];
+    let chain = evoChainDataJson.chain;
 
     while (chain) {
-        evoNames.push(chain.species.name);
-        chain = chain.evolves_to[0];  // gehe zur nächsten Stufe
+        names.push(chain.species.name);
+        chain = chain.evolves_to[0]; 
     }
 
-    // HTML zusammenbauen
-    let evoHTML = `<div class="evo">`;
-
-    for (let i = 0; i < evoNames.length; i++) {
-        const evoName = evoNames[i];
-
-        // Suche das passende Bild im pokemons-Array
-        const match = pokemons.find(p => p.name === evoName);
-        const imgSrc = match?.image || '';
-
-        evoHTML += `
-            <div class="evo-chain">
-                <img src="${imgSrc}">
-                <p>${evoName}</p>
-            </div>`;
-
-        if (i < evoNames.length - 1) {
-            evoHTML += `<div><i class="border-ring fa-solid fa-angles-right"></i></div>`;
-        }
-    }
-
-    evoHTML += `</div>`;
-
-    let refEvo = document.getElementById(`card-under-bar-${indexPok}`);
-    refEvo.innerHTML = evoHTML;
+    return names;
 }
+
+
+function updateEvoChainDOM(indexPok, evoHTML) {
+    const refEvo = document.getElementById(`card-under-bar-${indexPok}`);
+    if (refEvo) {
+        refEvo.innerHTML = evoHTML;
+    }
+}
+
+
+
