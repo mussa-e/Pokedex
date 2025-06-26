@@ -9,7 +9,7 @@
 
 @media (max-width: 500px) {
     .card {
-       width: 55%      
+       width: 80%      
     }
     .card-image img {
     width: 50%;
@@ -31,8 +31,6 @@
     }
     
 }
-
-
 
 @media (max-width: 450px) {
     .arrow {
@@ -56,8 +54,8 @@
     .card h2{
         font-size: 24px
     }
-    .evo-chain p{
-        display: none;
+    .chain-arrow{
+        font-size: 6px;
     }
 }
 
@@ -67,5 +65,8 @@
     }
     .bar {
         font-size: 16px;
+    }
+    .chain-arrow{
+        font-size: 4px;
     }
 }

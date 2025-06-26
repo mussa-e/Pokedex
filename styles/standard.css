@@ -1,42 +1,83 @@
-.bg_bug {
+/* .bg_bug {
     background-color: #a69d29;
     background-image: linear-gradient(to right, #a69d29, #d9d273);
+} */
+.bg_bug {
+    background-color: #a69d29;
+    background-image: linear-gradient(to right, #a69d29, #e4e1b3);
 }
-.bg_electric {
+/* .bg_electric {
     background-color: #e4bb26;
     background-image: linear-gradient(to right, #e4bb26, #efd36e);
+} */
+.bg_electric {
+    background-color: #e4bb26;
+    background-image: linear-gradient(to right, #e4bb26, #e6dbb3);
 }
-.bg_fairy {
+/* .bg_fairy {
     background-color: #e68de0;
     background-image: linear-gradient(to right, #e68de0, #ecbfe9);
+} */
+.bg_fairy {
+    background-color: #e68de0;
+    background-image: linear-gradient(to right, #e68de0, #e7d6e6);
 }
-.bg_fire {
+/* .bg_fire {
     background-color: #de6844;
     background-image: linear-gradient(to right, #de6844, #f3a188);
+} */
+.bg_fire {
+    background-color: #de6844;
+    background-image: linear-gradient(to right, #de6844, #ebc4b9);
 }
-.bg_flying {
+/* .bg_flying {
     background-color: #74abd2;
     background-image: linear-gradient(to right, #74abd2, #8eb8d5);
+} */
+.bg_flying {
+    background-color: #74abd2;
+    background-image: linear-gradient(to right, #74abd2, #c2d9ea);
 }
-.bg_grass {
+/* .bg_grass {
     background-color: #4a9740;
     background-image: linear-gradient(to right, #4a9740, #7eb776);
+} */
+.bg_grass {
+    background-color: #4a9740;
+    background-image: linear-gradient(to right, #4a9740, #cce0ca);
+    
 }
-.bg_ground {
+/* .bg_ground {
     background-color: #9c6f38;
     background-image: linear-gradient(to right, #9c6f38, #bb976b);
+} */
+.bg_ground {
+    background-color: #9c6f38;
+    background-image: linear-gradient(to right, #9c6f38, #ddc9b1);
 }
-.bg_normal {
+/* .bg_normal {
     background-color: #7d8182;
     background-image: linear-gradient(to right, #7d8182, #a3b1b4);
+} */
+.bg_normal {
+    background-color: #7d8182;
+    background-image: linear-gradient(to right, #7d8182, #d2dcde);
 }
-.bg_poison {
+/* .bg_poison {
     background-color: #9450d0;
     background-image: linear-gradient(to right, #9450d0, #c99af2);
+} */
+.bg_poison {
+    background-color: #9450d0;
+    background-image: linear-gradient(to right, #9450d0, #ddc7ef);
 }
-.bg_water {
+/* .bg_water {
     background-color: #3398de;
     background-image: linear-gradient(to right, #3398de, #7bbae7);
+} */
+.bg_water {
+    background-color: #3398de;
+    background-image: linear-gradient(to right, #3398de, #cce3f4);
 }
 
 .pixel-art {
@@ -96,6 +137,10 @@
     border: 2px solid hsla(45.5, 96%, 57%, 1);
     border-radius: 50px;
     padding: 4px;
+}
+
+.mg-b{
+    margin-bottom: 4px;
 }
 
 

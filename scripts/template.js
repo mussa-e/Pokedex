@@ -80,7 +80,7 @@ function getCardTemplate(indexPok){
             <div id="card-under-bar-${indexPok}" class="card-under-bar">
                 <div class="card-main-div"><p class="main-p1">Height :</p><p class="main-p2">${pokemon.height/10} m</p></div>
                 <div class="card-main-div"><p class="main-p1">Weight :</p><p class="main-p2">${pokemon.weight/10} kg</p></div>
-                <div class="card-main-div"><p class="main-p1">Base experience :</p><p class="main-p2">${pokemon.base_experience}</p></div>
+                <div class="card-main-div mg-b"><p class="main-p1">Base<br> experience :</p><p class="main-p2">${pokemon.base_experience}</p></div>
                 <div class="card-main-div"><p class="main-p1">Abilities :</p><p class="main-p2">${abilitiesHTML}</p></div>
             </div>
         </div>

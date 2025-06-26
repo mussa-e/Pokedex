@@ -25,7 +25,7 @@ function renderStats(indexPok, event){
 async function renderEvoChain(indexPok, event) {
     event.stopPropagation();
     underline("evochain");
-    getPokemons();
+    await getPokemons();
 
     const evoNames = await getEvolutionNames(indexPok);
     const evoHTML = getEvoChainTemplate(evoNames);
