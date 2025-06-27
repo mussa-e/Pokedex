@@ -168,3 +168,7 @@ footer {
     border: 2px ridge hsla(45.5, 96%, 57%, 1);
     border-radius: 50px;
 }
+
+.search-user-feedback{
+    font-size: 24px;
+}
