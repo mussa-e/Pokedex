@@ -13,8 +13,14 @@ header {
     background-color: #082128;
     display: flex;
     color: white;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+}
+.header-wrapper{
+    width: 1920px;
+    display: flex;
+    max-width: 1920px;
+    justify-content: space-between;
 }
 .header-logo {
     gap: 8px;
@@ -69,6 +75,7 @@ main {
     flex-direction: column;
     padding: 0 80px 0 80px;
     background-color: #04171e;
+    align-items: center;
 }
 .gallery {
     margin-bottom: 48px;
@@ -78,6 +85,7 @@ main {
     justify-content: center;
     flex-wrap: wrap;
     display: flex;
+    max-width: 1920px;
 }
 
 .btn {
@@ -105,14 +113,18 @@ main {
 
 footer {
     background-color: #082128;
-    padding: 30px 100px 40px 100px;
+    padding: 30px 80px 40px 80px;
     display: flex;
-    align-items: center;
     justify-content: space-evenly;
     color: hsla(45.5, 96%, 57%, 1);
-    flex-direction: column;
     gap: 16px;
     font-size: 18px;
+}
+.footer-under-div{
+    max-width: 1920px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     text-align: center;
 }
 
