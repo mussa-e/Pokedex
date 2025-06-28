@@ -64,9 +64,9 @@ function getCardTemplate(indexPok){
         <div class="card">
             <h2>#${indexPok + 1} ${name.charAt(0).toUpperCase()+name.slice(1)}</h2>
             <div class="card-image bg_${pokemon.types[0].type.name}">
-                <div class="arrow"><i onclick="skipLeft(${indexPok}, event)" class="fa-solid fa-reply border-solid-ring"></i></div>
+                <div id="arrow-left" class="arrow"><i onclick="skipLeft(${indexPok}, event)" class="fa-solid fa-reply border-solid-ring"></i></div>
                     <img src="${image}">
-                <div class="arrow"><i onclick="skipRight(${indexPok}, event)" class="fa-solid fa-share border-solid-ring"></i></div>
+                <div id="arrow-right" class="arrow"><i onclick="skipRight(${indexPok}, event)" class="fa-solid fa-share border-solid-ring"></i></div>
             </div>
 
             <div class="bar">

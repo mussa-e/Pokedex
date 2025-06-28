@@ -1,8 +1,9 @@
-let base_url_20 = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
-let base_url_40 = "https://pokeapi.co/api/v2/pokemon?limit=40&offset=0";
 let allPokemon = [];
 let allPokemonData = [];
-let api = base_url_20;
+let currentOffset = 0;
+let limit = 20;
+
+
 
 
 function init(){
@@ -10,13 +11,18 @@ function init(){
 }
 
 
-async function fetchPoks() {
+async function fetchPoks(limit) {
+    let baseUrl = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=0`;
 
-    let api = await fetch(base_url_20);
-    let apiJson = await api.json();
-
-    renderPoks(apiJson);
+    try {
+        let api = await fetch(baseUrl);
+        let apiJson = await api.json();
+        renderPoks(apiJson);
+    } catch (error) {
+        console.error("Fehler beim Abrufen der Pokémon:", error);
+    }
 }
+
 
 
 async function renderPoks(apiJson){
@@ -27,8 +33,14 @@ async function renderPoks(apiJson){
         let pokemonUrl = apiJson.results[indexPok].url;
         let PokemonApi = await fetch(pokemonUrl);
         let pokemonApiJson = await PokemonApi.json();
+
+        // allPokemonData.push(pokemonApiJson);  // <== Wichtig!
+        allPokemon.push(apiJson); 
+
         contentRef.innerHTML += getPokTemplate(apiJson, indexPok, pokemonApiJson);
     }
+
+    
 
     contentRef.innerHTML += getButtonWrapper();
 }
@@ -43,6 +55,9 @@ function showCard(indexPok){
     document.getElementById("main-div").classList.toggle("blurred");
     document.getElementById("footer").classList.toggle("blurred");
     document.getElementById("header").classList.toggle("blurred");
+
+    checkSkipRight(indexPok);
+    checkSkipLeftTwo(indexPok);
 }
 
 
@@ -57,11 +72,13 @@ function template(){
 
 
 function loadMore() {
-    base_url_20 = base_url_40;
-    api = base_url_40;
+    limit += 20;
     spinner();
-    fetchPoks();
+    fetchPoks(limit);
+    console.log(limit);
+    
 }
+
 
 
 function spinner() {
@@ -75,50 +92,13 @@ function spinner() {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('inputfield').addEventListener('input', search);
-});
 
 
-function search() {
-    let searchValue = document.getElementById('inputfield').value.toLowerCase();
-    let container = document.getElementById('gallery');
-    container.innerHTML = '';
-
-    let matchesFound = false;
-
-    for (let i = 0; i < allPokemon.length; i++) {
-        let name = allPokemon[i].results[i].name.toLowerCase();
-
-        if (name.includes(searchValue)) {
-            container.innerHTML += getPokTemplate(allPokemon[i], i, allPokemonData[i]);
-            matchesFound = true;
-        }
-    }
-
-    if (!matchesFound) {
-        container.innerHTML = `<div class="search-user-feedback">No matches found</div>`;
-    }
-}
 
 
-function underline(active) {
-    let main = document.getElementById("main");
-    let stats = document.getElementById("stats");
-    let evochain = document.getElementById("evochain");
 
-    main.classList.remove("border");
-    stats.classList.remove("border");
-    evochain.classList.remove("border");
 
-    if (active === "main") {
-        main.classList.add("border");
-    } else if (active === "stats") {
-        stats.classList.add("border");
-    } else if (active === "evochain") {
-        evochain.classList.add("border");
-    }
-}
+
 
 
 
