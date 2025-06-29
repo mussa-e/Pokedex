@@ -1,11 +1,15 @@
-function renderMain(indexPok, event){
-
+function renderMain(indexPok, event) {
     event.stopPropagation();
     underline("main");
 
-    let refMain = document.getElementById(`card-under-bar-${indexPok}`);
-    refMain.innerHTML = "";
-    refMain.innerHTML = getMainTemplate(indexPok);
+    const pokemon = allPokemonData[indexPok];
+    const height = pokemon.height / 10;
+    const weight = pokemon.weight / 10;
+    const baseExp = pokemon.base_experience;
+    const abilitiesHTML = getAbilitiesHTML(pokemon);
+
+    const refMain = document.getElementById(`card-under-bar-${indexPok}`);
+    refMain.innerHTML = getMainTemplate(height, weight, baseExp, abilitiesHTML);
 }
 
 
@@ -25,11 +29,30 @@ function renderStats(indexPok, event){
 async function renderEvoChain(indexPok, event) {
     event.stopPropagation();
     underline("evochain");
-    await getPokemons();
 
+    const refEvo = document.getElementById(`card-under-bar-${indexPok}`);
+    showEvoSpinner(refEvo);
+    
+    await getPokemons();
     const evoNames = await getEvolutionNames(indexPok);
-    const evoHTML = getEvoChainTemplate(evoNames);
-    updateEvoChainDOM(indexPok, evoHTML);
+    const evoData = prepareEvoChainData(evoNames);
+    const evoHTML = getEvoChainTemplate(evoData);
+    
+    setTimeout(() => {
+        refEvo.innerHTML = evoHTML;
+    }, 500);
+}
+
+
+function prepareEvoChainData(evoNames) {
+    return evoNames.map((name, i) => {
+        const match = pokemons.find(p => p.name === name);
+        return {
+            name: capitalize(name),
+            imgSrc: match?.image || "",
+            showArrow: i < evoNames.length - 1
+        };
+    });
 }
 
 

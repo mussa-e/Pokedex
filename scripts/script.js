@@ -2,8 +2,30 @@ let allPokemon = [];
 let allPokemonData = [];
 let currentOffset = 0;
 let limit = 20;
+let apiJson;
+let pokemonApiJson;
 
 
+let typeIcons = {
+    bug: "./img/bug.svg",
+    dark: "./img/dark.svg",
+    dragon: "./img/dragon.svg",
+    electric: "./img/electric.svg",
+    fairy: "./img/fairy.svg",
+    fighting: "./img/fighting.svg",
+    fire: "./img/fire.svg",
+    flying: "./img/flying.svg",
+    ghost: "./img/ghost.svg",
+    grass: "./img/grass.svg",
+    ground: "./img/ground.svg",
+    ice: "./img/ice.svg",
+    normal: "./img/normal.svg",
+    poison: "./img/poison.svg",
+    psychic: "./img/psychic.svg",
+    rock: "./img/rock.svg",
+    steel: "./img/steel.svg",
+    water: "./img/water.svg"
+};
 
 
 function init(){
@@ -16,7 +38,7 @@ async function fetchPoks(limit) {
 
     try {
         let api = await fetch(baseUrl);
-        let apiJson = await api.json();
+        apiJson = await api.json();
         renderPoks(apiJson);
     } catch (error) {
         console.error("Fehler beim Abrufen der Pokémon:", error);
@@ -24,8 +46,7 @@ async function fetchPoks(limit) {
 }
 
 
-
-async function renderPoks(apiJson){
+async function renderPoks(apiJson) {
     let contentRef = document.getElementById("gallery");
     contentRef.innerHTML = "";
 
@@ -34,30 +55,88 @@ async function renderPoks(apiJson){
         let PokemonApi = await fetch(pokemonUrl);
         let pokemonApiJson = await PokemonApi.json();
 
-        // allPokemonData.push(pokemonApiJson);  // <== Wichtig!
-        allPokemon.push(apiJson); 
-
-        contentRef.innerHTML += getPokTemplate(apiJson, indexPok, pokemonApiJson);
+        let pokemonData = preparePokemonData(apiJson, indexPok, pokemonApiJson);
+        contentRef.innerHTML += getPokTemplateFromData(pokemonData);
     }
-
-    
 
     contentRef.innerHTML += getButtonWrapper();
 }
 
 
-function showCard(indexPok){
-    let overlay = document.getElementById("overlay");
-    overlay.classList.toggle("d-none");
-    
-    overlay.innerHTML =  getCardTemplate(indexPok);
-    
-    document.getElementById("main-div").classList.toggle("blurred");
-    document.getElementById("footer").classList.toggle("blurred");
-    document.getElementById("header").classList.toggle("blurred");
+function preparePokemonData(apiJson, indexPok, pokemonApiJson) {
+    allPokemonData[indexPok] = pokemonApiJson;
+    allPokemon[indexPok] = apiJson;
+
+    const typeIconsHtml = pokemonApiJson.types.map(t => {
+        const typeName = t.type.name;
+        const typeIcon = typeIcons[typeName] || "";
+        return `<img src="${typeIcon}" class="type-icon"> `;
+    }).join("");
+
+    return {
+        id: indexPok,
+        name: apiJson.results[indexPok].name,
+        image: pokemonApiJson.sprites.other["official-artwork"].front_default,
+        bgClass: `bg_${pokemonApiJson.types[0].type.name}`,
+        typeIconsHtml
+    };
+}
+
+
+function showCard(indexPok) {
+    toggleOverlay();
+    const cardHTML = generateCardHTML(indexPok);
+    document.getElementById("overlay").innerHTML = cardHTML;
+
+    toggleBlur("main-div");
+    toggleBlur("footer");
+    toggleBlur("header");
 
     checkSkipRight(indexPok);
     checkSkipLeftTwo(indexPok);
+}
+
+
+function toggleOverlay() {
+    document.getElementById("overlay").classList.toggle("d-none");
+}
+
+
+function toggleBlur(elementId) {
+    document.getElementById(elementId).classList.toggle("blurred");
+}
+
+
+function generateCardHTML(indexPok) {
+    const pokemon = allPokemonData[indexPok];
+    const name = capitalize(pokemon.name);
+    const image = pokemon.sprites.other["official-artwork"].front_default;
+    const abilitiesHTML = getAbilitiesHTML(pokemon);
+    const typeIconsHTML = getTypeIconsHTML(pokemon);
+
+    return getCardTemplate(indexPok, name, image, pokemon, abilitiesHTML, typeIconsHTML);
+}
+
+
+function capitalize(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
+
+function getAbilitiesHTML(pokemon) {
+    return pokemon.abilities.map((a, i) => {
+        const name = capitalize(a.ability.name);
+        return i < pokemon.abilities.length - 1 ? `${name}, ` : name;
+    }).join("");
+}
+
+
+function getTypeIconsHTML(pokemon) {
+    return pokemon.types.map(t => {
+        const typeName = t.type.name;
+        const icon = typeIcons[typeName] || "";
+        return `<img src="${icon}">`;
+    }).join("");
 }
 
 
@@ -76,9 +155,7 @@ function loadMore() {
     spinner();
     fetchPoks(limit);
     console.log(limit);
-    
 }
-
 
 
 function spinner() {
@@ -90,6 +167,16 @@ function spinner() {
     
   }, 1000);
 }
+
+
+function evoSpinner(){
+    setTimeout(() => {
+                let spin = document.getElementById('evo-spinner');
+                if (spin) spin.remove();
+            }, 1000);
+}
+            
+        
 
 
 
