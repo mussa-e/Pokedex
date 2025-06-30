@@ -164,8 +164,6 @@ function loadMore() {
     currentOffset += 20;
     spinner();
     fetchPoks(20, currentOffset);
-    console.log("limit", limit);
-    console.log("currentOffset", currentOffset)
 }
 
 

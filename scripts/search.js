@@ -18,7 +18,6 @@ function search() {
             }
 }
 
-
     if (!matchesFound) {
         container.innerHTML = `<div class="search-user-feedback">No matches found</div>`;
     }
