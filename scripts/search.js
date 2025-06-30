@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('inputfield').addEventListener('input', search);
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//     document.getElementById('inputfield').addEventListener('input', search);
+// });
 
 
 function search() {

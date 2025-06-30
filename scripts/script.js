@@ -28,7 +28,12 @@ let typeIcons = {
 };
 
 
-function init(){
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('inputfield').addEventListener('input', search);
+});
+
+
+function init(){  
     fetchPoks();
 }
 
@@ -174,6 +179,25 @@ function evoSpinner(){
                 let spin = document.getElementById('evo-spinner');
                 if (spin) spin.remove();
             }, 1000);
+}
+
+
+function underline(active) {
+    let main = document.getElementById("main");
+    let stats = document.getElementById("stats");
+    let evochain = document.getElementById("evochain");
+
+    main.classList.remove("border");
+    stats.classList.remove("border");
+    evochain.classList.remove("border");
+
+    if (active === "main") {
+        main.classList.add("border");
+    } else if (active === "stats") {
+        stats.classList.add("border");
+    } else if (active === "evochain") {
+        evochain.classList.add("border");
+    }
 }
             
         
