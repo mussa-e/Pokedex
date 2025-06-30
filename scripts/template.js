@@ -1,6 +1,3 @@
-
-
-
 function getPokTemplateFromData(pokemonData) {
     return `
         <div id="${pokemonData.id}" onclick="showCard(${pokemonData.id})" class="pokdek">
@@ -20,7 +17,7 @@ function getPokTemplateFromData(pokemonData) {
 function getCardTemplate(indexPok, name, image, pokemon, abilitiesHTML, typeIconsHTML) {
     return `
         <div class="card">
-            <h2>#${indexPok + 1} ${name}</h2>
+            <h2>#${indexPok+1} ${name}</h2>
             <div class="card-image bg_${pokemon.types[0].type.name}">
                 <div id="arrow-left" class="arrow"><i onclick="skipLeft(${indexPok}, event)" class="fa-solid fa-reply border-solid-ring"></i></div>
                 <img src="${image}">
@@ -119,27 +116,8 @@ function getStatsTemplate(pokemon){
 }
 
 
-function getEvoChainTemplate(evoData) {
-    let evoHTML = `<div id="evo" class="evo">`;
-
-    evoData.forEach(({ name, imgSrc, showArrow }) => {
-        evoHTML += `
-            <div class="evo-chain">
-                <img src="${imgSrc}">
-                <p>${name}</p>
-            </div>`;
-        if (showArrow) {
-            evoHTML += `<div class="chain-arrow"><i class="border-ring fa-solid fa-angles-right"></i></div>`;
-        }
-    });
-
-    evoHTML += `</div>`;
-    return evoHTML;
-}
-
-
-function showEvoSpinner(container) {
-    container.innerHTML = `
+function evochainLoading() {
+    return `
         <div class="evo-spinner">
             <div class="spinner-border">
             </div>

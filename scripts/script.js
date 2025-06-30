@@ -38,8 +38,8 @@ function init(){
 }
 
 
-async function fetchPoks(limit) {
-    let baseUrl = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=0`;
+async function fetchPoks(limit, currentOffset) {
+    let baseUrl = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${currentOffset}`;
 
     try {
         let api = await fetch(baseUrl);
@@ -53,14 +53,19 @@ async function fetchPoks(limit) {
 
 async function renderPoks(apiJson) {
     let contentRef = document.getElementById("gallery");
-    contentRef.innerHTML = "";
+
+    let oldButton = document.getElementById("btn");
+    if (oldButton) {
+        oldButton.remove();
+    }
 
     for (let indexPok = 0; indexPok < apiJson.results.length; indexPok++) {
+        let globalIndex = currentOffset + indexPok;
         let pokemonUrl = apiJson.results[indexPok].url;
         let PokemonApi = await fetch(pokemonUrl);
         let pokemonApiJson = await PokemonApi.json();
 
-        let pokemonData = preparePokemonData(apiJson, indexPok, pokemonApiJson);
+        let pokemonData = preparePokemonData(apiJson, indexPok, pokemonApiJson, globalIndex);
         contentRef.innerHTML += getPokTemplateFromData(pokemonData);
     }
 
@@ -68,9 +73,9 @@ async function renderPoks(apiJson) {
 }
 
 
-function preparePokemonData(apiJson, indexPok, pokemonApiJson) {
-    allPokemonData[indexPok] = pokemonApiJson;
-    allPokemon[indexPok] = apiJson;
+function preparePokemonData(apiJson, indexPok, pokemonApiJson, globalIndex) {
+    allPokemonData[globalIndex] = pokemonApiJson;
+    allPokemon[globalIndex] = apiJson;
 
     const typeIconsHtml = pokemonApiJson.types.map(t => {
         const typeName = t.type.name;
@@ -79,7 +84,7 @@ function preparePokemonData(apiJson, indexPok, pokemonApiJson) {
     }).join("");
 
     return {
-        id: indexPok,
+        id: globalIndex,
         name: apiJson.results[indexPok].name,
         image: pokemonApiJson.sprites.other["official-artwork"].front_default,
         bgClass: `bg_${pokemonApiJson.types[0].type.name}`,
@@ -156,29 +161,11 @@ function template(){
 
 
 function loadMore() {
-    limit += 20;
+    currentOffset += 20;
     spinner();
-    fetchPoks(limit);
-    console.log(limit);
-}
-
-
-function spinner() {
-  let spinnerOverlay = document.getElementById('spinner-overlay');
-  spinnerOverlay.style.display = 'flex';
-
-  setTimeout(() => {
-    spinnerOverlay.style.display = 'none';
-    
-  }, 1000);
-}
-
-
-function evoSpinner(){
-    setTimeout(() => {
-                let spin = document.getElementById('evo-spinner');
-                if (spin) spin.remove();
-            }, 1000);
+    fetchPoks(20, currentOffset);
+    console.log("limit", limit);
+    console.log("currentOffset", currentOffset)
 }
 
 

@@ -1,8 +1,3 @@
-// document.addEventListener('DOMContentLoaded', () => {
-//     document.getElementById('inputfield').addEventListener('input', search);
-// });
-
-
 function search() {
     let searchValue = document.getElementById('inputfield').value.toLowerCase();
     let container = document.getElementById('gallery');

@@ -14,7 +14,6 @@ function renderMain(indexPok, event) {
 
 
 function renderStats(indexPok, event){
-    
     event.stopPropagation();
     underline("stats");
 
@@ -82,6 +81,25 @@ function updateEvoChainDOM(indexPok, evoHTML) {
     if (refEvo) {
         refEvo.innerHTML = evoHTML;
     }
+}
+
+
+function getEvoChainTemplate(evoData) {
+    let evoHTML = `<div id="evo" class="evo">`;
+
+    evoData.forEach(({ name, imgSrc, showArrow }) => {
+        evoHTML += `
+            <div class="evo-chain">
+                <img src="${imgSrc}">
+                <p>${name}</p>
+            </div>`;
+        if (showArrow) {
+            evoHTML += `<div class="chain-arrow"><i class="border-ring fa-solid fa-angles-right"></i></div>`;
+        }
+    });
+
+    evoHTML += `</div>`;
+    return evoHTML;
 }
 
 

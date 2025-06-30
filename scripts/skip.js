@@ -1,7 +1,7 @@
 function skipRight(indexPok, event) {
     event.stopPropagation();
 
-    let indexPokSkipRight = Math.min(indexPok + 1, 19 + limit);
+    let indexPokSkipRight = Math.min(indexPok + 1, 19 + currentOffset);
     let overlay = document.getElementById("overlay");
     overlay.innerHTML = generateCardHTML(indexPokSkipRight);
 
