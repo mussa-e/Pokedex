@@ -5,15 +5,19 @@ function search() {
     container.innerHTML = '';
     let matchesFound = false;
 
-    for (let i = 0; i < allPokemon.length; i++) {
-        let name = allPokemon[i].results[i].name.toLowerCase();
+    for (let i = 0; i < allPokemonData.length; i++) {
+        let pokemon = allPokemonData[i];
+        if (!pokemon) continue;
+
+        let name = pokemon.name.toLowerCase();
 
         if (name.includes(searchValue)) {
-            let pokemonData = preparePokemonData(allPokemon[i], i, allPokemonData[i]);
+            let pokemonData = preparePokemonData({ results: [{ name }] }, 0, pokemon, i);
             container.innerHTML += getPokTemplateFromData(pokemonData);
             matchesFound = true;
-        }
-    }
+            }
+}
+
 
     if (!matchesFound) {
         container.innerHTML = `<div class="search-user-feedback">No matches found</div>`;
